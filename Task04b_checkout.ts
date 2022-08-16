@@ -3,7 +3,7 @@ import { createPayment } from "./handson/payment";
 import { log } from "./utils/logger";
 
 const customerKey = "it-customer";
-const cartId = "";
+const cartId = "5451aa96-8679-4c6d-ad73-f65b052d5dae";
 const orderId = "";
 
 const paymentDraft = {
@@ -19,9 +19,12 @@ const paymentDraft = {
 };
 
 // create a cart and update the cartId variable
-checkout.createCart(customerKey).then(log).catch(log);
+// checkout.createCart(customerKey).then(log).catch(log);
 
-// checkout.addLineItemsToCart(cartId, ["tulip-seed-box", "tulip-seed-sack"]).then(log).catch(log);
+checkout
+  .addLineItemsToCart(cartId, ["tulip-seed-box", "tulip-seed-sack"])
+  .then(log)
+  .catch(log);
 
 // checkout.addDiscountCodeToCart(cartId, "SUMMER").then(log).catch(log);
 // checkout.recalculate(cartId).then(log).catch(log);

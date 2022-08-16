@@ -60,9 +60,22 @@ export const getCartById = (ID: string): Promise<ClientResponse<Cart>> =>
 export const addLineItemsToCart = (
   cartId: string,
   arrayOfSKUs: Array<string>
-): Promise<ClientResponse<Cart>> => {
-  throw new Error("Function not implemented");
-};
+): Promise<ClientResponse<Cart>> =>
+  getCartById(cartId).then((cart) =>
+    apiRoot
+      .carts()
+      .withId({ ID: cartId })
+      .post({
+        body: {
+          version: cart.body.version,
+          actions: arrayOfSKUs.map((sku) => ({
+            action: "addLineItem",
+            sku,
+          })),
+        },
+      })
+      .execute()
+  );
 
 export const addDiscountCodeToCart = (
   cartId: string,
