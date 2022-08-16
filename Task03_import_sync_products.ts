@@ -16,14 +16,14 @@ const containerKey = "it-ImportContainer";
 // importProductDrafts(containerKey).then(log).catch(log);
 
 // check import summary for your container
-checkImportSummary(containerKey).then(log).catch(log);
+// checkImportSummary(containerKey).then(log).catch(log);
 
 // check import operations for your container
-// checkImportOperationsStatus(containerKey).then(operations =>
-//     operations.body.results.forEach(operation =>
-//         log(operation.id + " : " + operation.state)
-//     )
-// );
+checkImportOperationsStatus(containerKey).then((operations) =>
+  operations.body.results.forEach((operation) =>
+    log(operation.id + " : " + operation.state)
+  )
+);
 
 // Check the status of import operations by their Ids
 // checkImportOperationStatusById("9eee411c-a698-4e13-b1fd-0996180df437").then(log).catch(log);

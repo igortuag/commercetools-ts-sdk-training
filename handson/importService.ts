@@ -35,9 +35,13 @@ export const checkImportSummary = (
 
 export const checkImportOperationsStatus = (
   importContainerKey: string
-): Promise<ClientResponse<ImportOperationPagedResponse>> => {
-  throw new Error("Function not implemented");
-};
+): Promise<ClientResponse<ImportOperationPagedResponse>> =>
+  importApiRoot
+    .importContainers()
+    .withImportContainerKeyValue({ importContainerKey })
+    .importOperations()
+    .get()
+    .execute();
 
 export const checkImportOperationStatusById = (
   id: string
