@@ -38,10 +38,10 @@ const paymentDraft = {
 
 // set order state to confirmed and custom workflow state to order packed
 // checkout.setOrderState(orderId, "Confirmed").then(log).catch(log);
-checkout
-  .updateOrderCustomState(orderId, "it-order-packed")
-  .then(log)
-  .catch(log);
+// checkout
+//   .updateOrderCustomState(orderId, "it-order-packed")
+//   .then(log)
+//   .catch(log);
 
 const checkoutProcess = async () => {
   let emptyCart = await checkout.createCart(customerKey);
@@ -53,7 +53,7 @@ const checkoutProcess = async () => {
 
   filledCart = await checkout.addDiscountCodeToCart(
     filledCart.body.id,
-    "SUMMER"
+    "SUMMERSALE"
   );
 
   filledCart = await checkout.recalculate(filledCart.body.id);
@@ -69,7 +69,7 @@ const checkoutProcess = async () => {
   order = await checkout.setOrderState(order.body.id, "Confirmed");
   order = await checkout.updateOrderCustomState(
     order.body.id,
-    "tt-order-packed"
+    "it-order-packed"
   );
   if (order) {
     return {
@@ -79,4 +79,4 @@ const checkoutProcess = async () => {
   }
 };
 
-// checkoutProcess().then(log).catch(log);
+checkoutProcess().then(log).catch(log);
