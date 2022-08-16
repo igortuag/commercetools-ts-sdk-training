@@ -155,9 +155,18 @@ export const setShippingMethod = async (
 
 export const createOrderFromCart = (
   cartId: string
-): Promise<ClientResponse<Order>> => {
-  throw new Error("Function not implemented");
-};
+): Promise<ClientResponse<Order>> =>
+  getCartById(cartId).then((cart) =>
+    apiRoot
+      .orders()
+      .post({
+        body: {
+          cart: { id: cartId, typeId: "cart" },
+          version: cart.body.version,
+        },
+      })
+      .execute()
+  );
 
 const createOrderFromCartDraft = (
   cartId: string

@@ -4,7 +4,7 @@ import { log } from "./utils/logger";
 
 const customerKey = "it-customer";
 const cartId = "5451aa96-8679-4c6d-ad73-f65b052d5dae";
-const orderId = "";
+const orderId = "de4c0a92-ba8f-4848-b7f7-5c9cba82a3f7";
 
 const paymentDraft = {
   key: "payment" + Math.random().toString(36).substring(2, 7),
@@ -26,12 +26,13 @@ const paymentDraft = {
 //   .then(log)
 //   .catch(log);
 
-checkout.addDiscountCodeToCart(cartId, "SUMMERSALE").then(log).catch(log);
+// checkout.addDiscountCodeToCart(cartId, "SUMMERSALE").then(log).catch(log);
 // checkout.recalculate(cartId).then(log).catch(log);
+
 // checkout.setShippingMethod(cartId).then(log).catch(log);
 
 // create order from cart and update the orderId
-// checkout.createOrderFromCart(cartId).then(log).catch(log);
+checkout.createOrderFromCart(cartId).then(log).catch(log);
 
 // checkout.getOrderById(orderId).then(log).catch(log);
 
