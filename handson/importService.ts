@@ -25,9 +25,13 @@ export const createImportContainer = (
 
 export const checkImportSummary = (
   importContainerKey: string
-): Promise<ClientResponse<ImportSummary>> => {
-  throw new Error("Function not implemented");
-};
+): Promise<ClientResponse<ImportSummary>> =>
+  importApiRoot
+    .importContainers()
+    .withImportContainerKeyValue({ importContainerKey })
+    .importSummaries()
+    .get()
+    .execute();
 
 export const checkImportOperationsStatus = (
   importContainerKey: string

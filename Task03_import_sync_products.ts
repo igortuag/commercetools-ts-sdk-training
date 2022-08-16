@@ -13,10 +13,10 @@ const containerKey = "it-ImportContainer";
 // createImportContainer(containerKey).then(log).catch(log);
 
 // import products
-importProductDrafts(containerKey).then(log).catch(log);
+// importProductDrafts(containerKey).then(log).catch(log);
 
 // check import summary for your container
-// checkImportSummary(containerKey).then(log).catch(log);
+checkImportSummary(containerKey).then(log).catch(log);
 
 // check import operations for your container
 // checkImportOperationsStatus(containerKey).then(operations =>
