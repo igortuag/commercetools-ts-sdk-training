@@ -80,9 +80,24 @@ export const addLineItemsToCart = (
 export const addDiscountCodeToCart = (
   cartId: string,
   discountCode: string
-): Promise<ClientResponse<Cart>> => {
-  throw new Error("Function not implemented");
-};
+): Promise<ClientResponse<Cart>> =>
+  getCartById(cartId).then((cart) =>
+    apiRoot
+      .carts()
+      .withId({ ID: cartId })
+      .post({
+        body: {
+          version: cart.body.version,
+          actions: [
+            {
+              action: "addDiscountCode",
+              code: discountCode,
+            },
+          ],
+        },
+      })
+      .execute()
+  );
 
 export const recalculate = (cartId: string): Promise<ClientResponse<Cart>> =>
   getCartById(cartId).then((cart) =>

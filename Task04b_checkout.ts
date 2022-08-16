@@ -21,12 +21,12 @@ const paymentDraft = {
 // create a cart and update the cartId variable
 // checkout.createCart(customerKey).then(log).catch(log);
 
-checkout
-  .addLineItemsToCart(cartId, ["tulip-seed-box", "tulip-seed-sack"])
-  .then(log)
-  .catch(log);
+// checkout
+//   .addLineItemsToCart(cartId, ["tulip-seed-box", "tulip-seed-sack"])
+//   .then(log)
+//   .catch(log);
 
-// checkout.addDiscountCodeToCart(cartId, "SUMMER").then(log).catch(log);
+checkout.addDiscountCodeToCart(cartId, "SUMMERSALE").then(log).catch(log);
 // checkout.recalculate(cartId).then(log).catch(log);
 // checkout.setShippingMethod(cartId).then(log).catch(log);
 
