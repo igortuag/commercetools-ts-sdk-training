@@ -45,9 +45,8 @@ export const checkImportOperationsStatus = (
 
 export const checkImportOperationStatusById = (
   id: string
-): Promise<ClientResponse<ImportOperation>> => {
-  throw new Error("Function not implemented");
-};
+): Promise<ClientResponse<ImportOperation>> =>
+  importApiRoot.importOperations().withIdValue({ id }).get().execute();
 
 export const importProductDrafts = async (
   importContainerKey: string

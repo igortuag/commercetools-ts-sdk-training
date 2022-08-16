@@ -26,8 +26,12 @@ checkImportOperationsStatus(containerKey).then((operations) =>
 );
 
 // Check the status of import operations by their Ids
-// checkImportOperationStatusById("9eee411c-a698-4e13-b1fd-0996180df437").then(log).catch(log);
-// checkImportOperationStatusById("340ec151-ebd3-422a-97a8-e7625e85633a").then(log).catch(log);
+checkImportOperationStatusById("447c9cc1-0aac-4945-9079-aa8471f205aa")
+  .then(log)
+  .catch(log);
+checkImportOperationStatusById("bff1a708-8e84-437d-ab85-7a54ad718d7b")
+  .then(log)
+  .catch(log);
 
 // https://github.com/commercetools/commercetools-project-sync#run
 // docker run \
