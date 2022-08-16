@@ -32,12 +32,12 @@ const paymentDraft = {
 // checkout.setShippingMethod(cartId).then(log).catch(log);
 
 // create order from cart and update the orderId
-checkout.createOrderFromCart(cartId).then(log).catch(log);
+// checkout.createOrderFromCart(cartId).then(log).catch(log);
 
 // checkout.getOrderById(orderId).then(log).catch(log);
 
 // set order state to confirmed and custom workflow state to order packed
-// checkout.setOrderState(orderId, "Confirmed").then(log).catch(log);
+checkout.setOrderState(orderId, "Confirmed").then(log).catch(log);
 // checkout.updateOrderCustomState(orderId, "tt-order-packed").then(log).catch(log);
 
 const checkoutProcess = async () => {

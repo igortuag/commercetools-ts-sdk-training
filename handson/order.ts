@@ -191,9 +191,24 @@ export const updateOrderCustomState = (
 export const setOrderState = (
   orderId: string,
   stateName: OrderState
-): Promise<ClientResponse<Order>> => {
-  throw new Error("Function not implemented");
-};
+): Promise<ClientResponse<Order>> =>
+  getOrderById(orderId).then((order) =>
+    apiRoot
+      .orders()
+      .withId({ ID: orderId })
+      .post({
+        body: {
+          version: order.body.version,
+          actions: [
+            {
+              action: "changeOrderState",
+              orderState: stateName,
+            },
+          ],
+        },
+      })
+      .execute()
+  );
 
 export const addPaymentToCart = (
   cartId: string,
