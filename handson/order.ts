@@ -184,9 +184,27 @@ export const getOrderById = (ID: string): Promise<ClientResponse<Order>> =>
 export const updateOrderCustomState = (
   orderId: string,
   customStateKey: string
-): Promise<ClientResponse<Order>> => {
-  throw new Error("Function not implemented");
-};
+): Promise<ClientResponse<Order>> =>
+  getOrderById(orderId).then((order) =>
+    apiRoot
+      .orders()
+      .withId({ ID: orderId })
+      .post({
+        body: {
+          version: order.body.version,
+          actions: [
+            {
+              action: "transitionState",
+              state: {
+                key: customStateKey,
+                typeId: "state",
+              },
+            },
+          ],
+        },
+      })
+      .execute()
+  );
 
 export const setOrderState = (
   orderId: string,

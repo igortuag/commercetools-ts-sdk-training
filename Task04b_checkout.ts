@@ -37,8 +37,11 @@ const paymentDraft = {
 // checkout.getOrderById(orderId).then(log).catch(log);
 
 // set order state to confirmed and custom workflow state to order packed
-checkout.setOrderState(orderId, "Confirmed").then(log).catch(log);
-// checkout.updateOrderCustomState(orderId, "tt-order-packed").then(log).catch(log);
+// checkout.setOrderState(orderId, "Confirmed").then(log).catch(log);
+checkout
+  .updateOrderCustomState(orderId, "it-order-packed")
+  .then(log)
+  .catch(log);
 
 const checkoutProcess = async () => {
   let emptyCart = await checkout.createCart(customerKey);
