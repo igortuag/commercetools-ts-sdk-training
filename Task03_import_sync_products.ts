@@ -41,4 +41,4 @@ checkImportOperationStatusById("bff1a708-8e84-437d-ab85-7a54ad718d7b")
 // -e TARGET_PROJECT_KEY=xxx \
 // -e TARGET_CLIENT_ID=xxx \
 // -e TARGET_CLIENT_SECRET=xxx \
-// commercetools/commercetools-project-sync:5.0.0 -s all
+// commercetools/commercetools-project-sync:5.2.0 -s all
