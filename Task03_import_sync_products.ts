@@ -1,13 +1,13 @@
 import {
-    checkImportOperationStatusById,
-    checkImportOperationsStatus,
-    checkImportSummary,
-    createImportContainer,
-    importProducts
+  checkImportOperationStatusById,
+  checkImportOperationsStatus,
+  checkImportSummary,
+  createImportContainer,
+  importProductDrafts,
 } from "./handson/importService";
 import { log } from "./utils/logger";
 
-const containerKey = "tt-ImportContainer";
+const containerKey = "it-ImportContainer";
 
 // Create an import container
 createImportContainer(containerKey).then(log).catch(log);
