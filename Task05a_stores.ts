@@ -1,11 +1,15 @@
 import { apiRoot } from "./handson/client";
-import { getStoreByKey, getCustomersInStore, createInStoreCart } from "./handson/store";
+import {
+  getStoreByKey,
+  getCustomersInStore,
+  createInStoreCart,
+} from "./handson/store";
 import { getCustomerByKey } from "./handson/customer";
 import { log } from "./utils/logger";
 
-const storeKey = "berlin-store";
+const storeKey = "it-store";
 
-// getStoreByKey(storeKey).then(log).catch(log);
+getStoreByKey(storeKey).then(log).catch(log);
 
 // getCustomersInStore(storeKey)
 //     .then(customers => {
@@ -16,10 +20,8 @@ const storeKey = "berlin-store";
 //     })
 //     .catch(log);
 
-// getCustomerByKey("tt-customer")
-//     .then(customer => {
-//         createInStoreCart(storeKey, customer)
-//             .then(log)
-//             .catch(log);
-//     })
-//     .catch(log);
+// getCustomerByKey("it-customer")
+//   .then((customer) => {
+//     createInStoreCart(storeKey, customer).then(log).catch(log);
+//   })
+//   .catch(log);
