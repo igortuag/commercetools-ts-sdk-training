@@ -7,9 +7,8 @@ import { apiRoot } from "./client";
 
 export const getProductSelectionByKey = (
   key: string
-): Promise<ClientResponse<ProductSelection>> => {
-  throw new Error("Function not implemented");
-};
+): Promise<ClientResponse<ProductSelection>> =>
+  apiRoot.productSelections().withKey({ key }).get().execute();
 
 export const createProductSelection = (
   key: string,
@@ -28,9 +27,26 @@ export const createProductSelection = (
 export const addProductsToProductSelection = async (
   productSelectionKey: string,
   arrayOfProductKeys: Array<string>
-): Promise<ClientResponse<ProductSelection>> => {
-  throw new Error("Function not implemented");
-};
+): Promise<ClientResponse<ProductSelection>> =>
+  getProductSelectionByKey(productSelectionKey).then((productSelection) =>
+    apiRoot
+      .productSelections()
+      .withKey({ key: productSelectionKey })
+      .post({
+        body: {
+          version: productSelection.body.version,
+          actions: arrayOfProductKeys.map((productKey) => ({
+            action: "addProduct",
+            active: true,
+            product: {
+              typeId: "product",
+              key: productKey,
+            },
+          })),
+        },
+      })
+      .execute()
+  );
 
 export const getProductsInProductSelection = (
   productSelectionKey: string

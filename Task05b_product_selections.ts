@@ -13,13 +13,15 @@ import { log } from "./utils/logger";
 
 const productSelectionKey = "it-toronto-store-selection";
 
-createProductSelection(productSelectionKey, "Berlin Store Selection")
-  .then(log)
-  .catch(log);
+// createProductSelection(productSelectionKey, "Berlin Store Selection")
+//   .then(log)
+//   .catch(log);
 
 // getProductSelectionByKey(productSelectionKey).then(log).catch(log);
 
-// addProductsToProductSelection(productSelectionKey, ['tulip-seed-product']).then(log).catch(log);
+addProductsToProductSelection(productSelectionKey, ["tulip-seed-product"])
+  .then(log)
+  .catch(log);
 
 // getProductsInProductSelection(productSelectionKey).then(log).catch(log);
 
