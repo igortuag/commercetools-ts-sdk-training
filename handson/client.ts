@@ -94,10 +94,44 @@ const createStoreApiClient = () => {
 };
 
 const createMyApiClient = () => {
-  throw new Error("Function not implemented");
+  const {
+    oauthHost,
+    clientId,
+    clientSecret,
+    projectKey,
+    host,
+    username,
+    password,
+  }: Config = readConfig(Prefix.ME);
+
+  const authMiddlewareOptions: PasswordAuthMiddlewareOptions = {
+    host: oauthHost,
+    credentials: {
+      clientId,
+      clientSecret,
+      user: {
+        username,
+        password,
+      },
+    },
+    projectKey,
+    fetch,
+  };
+
+  const httpMiddlewareOptions: HttpMiddlewareOptions = {
+    host,
+    fetch,
+  };
+
+  const client = new ClientBuilder()
+    .withPasswordFlow(authMiddlewareOptions)
+    .withHttpMiddleware(httpMiddlewareOptions)
+    .build();
+
+  return createApiBuilderFromCtpClient(client).withProjectKey({ projectKey });
 };
 
 export const apiRoot: ApiRoot = createApiClient();
 export const importApiRoot: ImportApiRoot = createImportApiClient();
 export const storeApiRoot: ApiRoot = createStoreApiClient();
-// export const myApiRoot: ApiRoot = createMyApiClient();
+export const myApiRoot: ApiRoot = createMyApiClient();
