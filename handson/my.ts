@@ -13,6 +13,4 @@ export const getMe = (): Promise<ClientResponse<Customer>> =>
 
 export const getMyOrders = (): Promise<
   ClientResponse<OrderPagedQueryResponse>
-> => {
-  throw new Error("Function not implemented");
-};
+> => myApiRoot.orders().get().execute();
