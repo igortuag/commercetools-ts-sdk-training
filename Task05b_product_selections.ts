@@ -19,12 +19,14 @@ const productSelectionKey = "it-toronto-store-selection";
 
 // getProductSelectionByKey(productSelectionKey).then(log).catch(log);
 
-addProductsToProductSelection(productSelectionKey, ["tulip-seed-product"])
-  .then(log)
-  .catch(log);
+// addProductsToProductSelection(productSelectionKey, ["tulip-seed-product"])
+//   .then(log)
+//   .catch(log);
 
 // getProductsInProductSelection(productSelectionKey).then(log).catch(log);
 
-// addProductSelectionToStore("berlin-store", productSelectionKey).then(log).catch(log);
+addProductSelectionToStore("it-store", productSelectionKey)
+  .then(log)
+  .catch(log);
 
 // getProductsInStore("berlin-store").then(log).catch(log);
