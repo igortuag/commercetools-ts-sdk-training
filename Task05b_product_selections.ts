@@ -1,16 +1,21 @@
-import { getProductsInStore, addProductSelectionToStore } from "./handson/store";
 import {
-    getProductSelectionByKey,
-    createProductSelection,
-    addProductsToProductSelection,
-    getProductsInProductSelection
+  getProductsInStore,
+  addProductSelectionToStore,
+} from "./handson/store";
+import {
+  getProductSelectionByKey,
+  createProductSelection,
+  addProductsToProductSelection,
+  getProductsInProductSelection,
 } from "./handson/productSelections";
 
 import { log } from "./utils/logger";
 
-const productSelectionKey = "tt-berlin-store-selection";
+const productSelectionKey = "it-toronto-store-selection";
 
-createProductSelection(productSelectionKey, "Berlin Store Selection").then(log).catch(log);
+createProductSelection(productSelectionKey, "Berlin Store Selection")
+  .then(log)
+  .catch(log);
 
 // getProductSelectionByKey(productSelectionKey).then(log).catch(log);
 
