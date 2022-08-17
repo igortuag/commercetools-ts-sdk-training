@@ -25,8 +25,8 @@ const productSelectionKey = "it-toronto-store-selection";
 
 // getProductsInProductSelection(productSelectionKey).then(log).catch(log);
 
-addProductSelectionToStore("it-store", productSelectionKey)
-  .then(log)
-  .catch(log);
+// addProductSelectionToStore("it-store", productSelectionKey)
+//   .then(log)
+//   .catch(log);
 
-// getProductsInStore("berlin-store").then(log).catch(log);
+getProductsInStore("it-store").then(log).catch(log);
